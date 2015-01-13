@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JSONP</title>
+</head>
+<body>
+  <div id="result">
+  </div>
+<script >
+function addScript( url) {
+  var script = document.createElement('script');
+  script.src = url;
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+addScript('https://api.flickr.com/services/rest/?method=flickr.photos.search&user_id=&api_key=&page=1&format=json&jsoncallback=processPhotos');
+
+// assign photos globally, call first to load
+function processPhotos(obj) {
+  photos = obj.photos.photo;
+  var str = '';
+  photos.forEach(function(photo) {
+    str+=photo.title + '<br /> ';
+  });
+  document.getElementById('result').innerHTML = str;
+}
+</script>
+</body>
+</html>

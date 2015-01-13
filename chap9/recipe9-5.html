@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Audio</title>
+<meta charset="utf-8">
+</head>
+<body>
+<audio id="meadow" controls>
+   <source src="meadow.mp3" type="audio/mpeg3"/>
+   <source src="meadow.ogg" type="audio/ogg" />
+   <source src="meadow.wav" type="audio/wav" />
+   <p><a href="meadow.wav">Meadow sounds</a></p>
+</audio>
+<script>
+  var meadow = document.getElementById("meadow");
+  meadow.addEventListener("ended", aboutAudio);
+
+  function aboutAudio() {
+    var info = 'This audio file is a recording from the Shaw Nature Reserve';
+    var txt = document.createTextNode(info);
+    var div = document.createElement("div");
+    div.appendChild(txt);
+    document.body.appendChild(div);
+  }
+</script>
+</body>
+</html>
+

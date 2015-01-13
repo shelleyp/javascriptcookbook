@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+<title>Pop-Up</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<style>
+
+img
+{
+  padding: 5px;
+}
+
+.popup
+{
+   position: absolute;
+   background-color: #fff;
+   padding: 5px;
+   border: 2px solid #f00;
+   width: 100px;
+}
+</style>
+<script>
+
+var xmlhttp;
+
+function getInfo(evt) {
+
+  evt = evt || window.event;
+
+  // prepare request
+  xmlhttp = new XMLHttpRequest();
+
+  var value;
+  if (this.id) {
+    value = this.id;
+  } else {
+    value = evt.srcElement.id;
+  }
+  var url = "photos.php?photo=" + value;
+  xmlhttp.open('GET', url, true);
+  xmlhttp.onreadystatechange = showWindow;
+  xmlhttp.send(null);
+
+  return false;
+}
+
+// compute position for popup
+function compPos(obj) {
+    var rect = obj.getBoundingClientRect();
+    var height;
+    if (rect.height) {
+      height = rect.height;
+    } else {
+      height = rect.bottom - rect.top;
+    }
+    var top = rect.top + height + 10;
+    return [rect.left, top];
+}
+
+// process return
+function showWindow() {
+   if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+     var response = xmlhttp.responseText.split("#");
+     var img = document.getElementById(response[0]);
+
+     if (!img) return;
+
+     // derive location for popup
+     var loc = compPos(img);
+     var left = loc[0] + "px";
+     var top = loc[1] + "px";
+
+     // create popup 
+     var div = document.createElement("popup");
+     div.id = "popup";
+     var txt = document.createTextNode(response[1]);
+     div.appendChild(txt);
+
+     // style popup
+     div.setAttribute("class","popup");
+     div.setAttribute("style","left: " + left + "; top: " + top);
+
+     document.body.appendChild(div);
+   }
+}
+
+function removeWindow() {
+   var popup = document.getElementById("popup");
+   if (popup)
+     popup.parentNode.removeChild(popup);
+
+   return false;
+}
+
+
+window.onload=function() {
+  var imgs = document.getElementsByTagName("img");
+  for (var i = 0; i < imgs.length; i++) {
+     imgs[i].addEventListener("mouseover",getInfo, false);
+     imgs[i].addEventListener("mouseout",removeWindow, false);
+  }
+}  
+</script>
+
+</head>
+<body>
+<img src="dragonfly2.thumbnail.jpg" id="dragonfly2" alt="image of common dragonfly on bright green and pink flowers" />
+<img src="dragonfly4.thumbnail.jpg" id="dragonfly4" alt="Dark orange dragonfly on water lily" />
+<img src="dragonfly6.thumbnail.jpg" id="dragonfly6" alt="Dark orange dragonfly on purple water lily" />
+<img src="dragonfly8.thumbnail.jpg" id="dragonfly8" alt="Dragonfly on bright pink water lily" />
+</body>

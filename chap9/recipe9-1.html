@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+<title>Canvas Chart</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+<canvas id="imgcanvas" width="650" height="350">
+<p>Include an image that has a static representation of the chart</p>
+</canvas>
+
+<script>
+
+  var points = [[[100,100], [150, 50], [200,185],
+               [250, 185], [300,250], [350,100], [400,250],
+               [450, 100], [500,20], [550,80], [600, 120]],
+              
+               [[100,100], [150, 150], [200,135],
+               [250, 285], [300,150], [350,150], [400,280],
+               [450, 100], [500,120], [550,80], [600, 190]],
+
+               [[100,200], [150, 100], [200,35],
+               [250, 185], [300,10], [350,15], [400,80],
+               [450, 100], [500,120], [550,80], [600, 120]]];
+  
+  var colors = ['black','red','green'];
+
+  var imgcanvas = document.getElementById("imgcanvas");
+
+  if (imgcanvas.getContext) {
+   
+    var ctx = imgcanvas.getContext('2d');
+
+    // rectangle wrapping line chart
+    ctx.strokeRect(0,0,600,300);
+
+    points.forEach(function(element, indx, arry) {
+      setTimeout(function() { 
+         
+        // set up beginning
+        ctx.beginPath();
+        ctx.moveTo(0,100);
+        
+        ctx.strokeStyle = colors[indx];
+     
+        for (var i = 0; i < element.length; i++) {
+          ctx.lineTo(element[i][0], element[i][1]);
+        }
+      
+        ctx.stroke();   
+    
+      }, indx * 5000); 
+      
+    });
+  }
+</script>
+
+</body>

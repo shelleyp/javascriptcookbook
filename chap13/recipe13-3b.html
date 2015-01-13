@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+<title>Wake Up</title>
+<meta charset="utf-8" />
+<style>
+#result
+{
+  width: 500px;
+  margin: 30px;
+}
+</style>
+<script>
+
+window.onload=function() {
+
+ if (window.Notification) {
+   Notification.requestPermission(function() {
+
+     setTimeout(function() {
+       if (document.visibilityState == "hidden") {
+        var notification = new Notification('hey wake up', 
+                     {body: 'your process is done',
+                     tag: 'loader', 
+                     icon: 'favicon.ico'});
+       } else {
+        document.getElementById("result").innerHTML = 'your process is done';
+       }
+     }, 5000);
+   });
+ }
+}
+</script>
+</head>
+<body>
+<div id="result"></div>
+</body>
+

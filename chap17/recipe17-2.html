@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+  <title>Remember me--new, and improved!</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+<body>
+  <button id="next" data-page="zero">Next Action</button>
+  <div id="square" class="zero">
+    <p>This is the object</p>
+  </div>
+
+  <script type="text/javascript">
+    document.getElementById("next").onclick=nextPanel;
+
+    window.onpopstate = function(event) {
+    
+    // check for event.state, if found, reload state
+    if (!event.state) return;
+      var page = event.state.page;
+      switch (page) {
+        case "one" :
+           functionOne();
+           break;
+        case "two" :
+           functionOne();
+           functionTwo();
+           break;
+        case "three" :
+           functionOne();
+           functionTwo();
+           functionThree();
+      }
+    }
+
+    // display next panel, based on button's class
+    function nextPanel() {
+      var page = document.getElementById("next").getAttribute("data-page");
+      switch(page) {
+         case "zero" :
+            functionOne();
+            break;
+         case "one" :
+            functionTwo();
+            break;
+         case "two" :
+            functionThree();
+       }
+    }
+    
+    // set both the button class, and create the state link, add to page
+    function setPage(page) {
+      document.getElementById("next").setAttribute("data-page",page);
+            window.history.pushState({ page : page}, "Page " + page, "?page=" + page);
+    }
+
+    // function one, two, three - change div, set button and link
+    function functionOne() {
+      var square = document.getElementById("square");
+      square.style.position="relative";
+      square.style.left="0";
+      square.style.backgroundColor="#ff0000";
+      square.style.width="200px";
+      square.style.height="200px";
+      square.style.padding="10px";
+      square.style.margin="20px";
+      setPage("one");
+    }
+
+    function functionTwo() {
+      var square = document.getElementById("square");
+      square.style.backgroundColor="#ffff00";
+      square.style.position="absolute";
+      square.style.left="200px";
+      setPage("two");
+    }
+
+    function functionThree() {
+      var square = document.getElementById("square");
+      square.style.width="400px";
+      square.style.height="400px";
+      square.style.backgroundColor="#00ff00";
+      square.style.left="400px";
+      setPage("three");
+    }
+  </script>
+</body>
+

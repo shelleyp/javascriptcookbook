@@ -1,0 +1,10 @@
+tr
+  td #{widget.sn}
+  td #{widget.name}
+  td $#{widget.price.toFixed(2)}
+  td #{widget.desc}
+  td
+    a(href='/widgets/edit/#{widget.sn}') Edit
+  td
+    a(href='/widgets/#{widget.sn}') Delete
+

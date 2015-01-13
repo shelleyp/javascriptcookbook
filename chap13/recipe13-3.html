@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+<title>Wake Up</title>
+<meta charset="utf-8" />
+<style>
+#result
+{
+  width: 500px;
+  margin: 30px;
+}
+</style>
+<script>
+
+window.onload=function() {
+
+ if (window.Notification) {
+    Notification.requestPermission(function() {
+
+      setTimeout(function() {
+       var notification = new Notification('hey wake up', 
+                       {body: 'your process is done',
+                       tag: 'loader', 
+                       icon: 'favicon.ico'});
+      }, 5000);
+    });
+ }
+}
+</script>
+</head>
+<body>
+<form>
+<p>wait for it...</p>
+</body>
+

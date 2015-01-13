@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NodeList</title>
+</head>
+<body>
+  <p><img src="firstimage.jpg" alt="image description" /></p>
+  <p><img src="secondimage.jpg" alt="image description" /></p>
+  <p><img src="thirdimage.jpg" alt="image description" /></p>
+
+<script>
+   var imgs = document.getElementsByTagName('img');
+   console.log(imgs.length);
+   var p = document.createElement("p");
+   var img = document.createElement("img");
+   img.src="someimg.jpg";
+   p.appendChild(img);
+
+   var paras = document.getElementsByTagName('p');
+   paras[0].parentNode.appendChild(p);
+
+   console.log(imgs.length);
+ </script>
+ 
+</body>
+</html>
+

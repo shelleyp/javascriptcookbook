@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Namespace</title>
+<script type="text/javascript">
+//<![CDATA[
+
+window.onload=function () {
+
+   var str = "";
+   var title = document.getElementsByTagName("title");
+   for (var i = 0; i < title.length; i++) {
+      str += title.item(i).namespaceURI + " " +
+             title.item(i).prefix + " " +
+             title.item(i).localName + " " +
+             title.item(i).text + " ";
+   }
+   alert(str);
+
+   str = "";
+   if (!document.getElementsByTagNameNS) return;
+   var  titlens =
+document.getElementsByTagNameNS("http://purl.org/dc/elements/1.1/",
+"title");
+   for (var i = 0; i < titlens.length; i++) {
+      str += titlens.item(i).namespaceURI + " " +
+             titlens.item(i).prefix + " " +
+             titlens.item(i).localName + " " +
+             titlens.item(i).textContent + " ";
+   }
+   alert(str);}
+//]]>
+
+</script>
+</head>
+<body>
+<h1>SVG</h1>
+<svg id="svgelem" height="800" width="800" xmlns="http://www.w3.org/2000/svg">
+          <circle id="redcircle" cx="300" cy="300" r="300"
+           fill="red" />
+  <metadata>
+    <rdf:RDF xmlns:cc="http://web.resource.org/cc/"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <cc:Work rdf:about="">
+        <dc:title>Sizing Red Circle</dc:title>
+        <dc:description></dc:description>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>circle</rdf:li>
+            <rdf:li>red</rdf:li>
+            <rdf:li>graphic</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://www.openclipart.org">
+            <dc:title>Testing RDF in SVG</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title id="title">Testing</dc:title>
+          </cc:Agent>
+          </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>testing</dc:title>
+          </cc:Agent>
+          </dc:rights>
+        <dc:date></dc:date>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+            rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license
+            rdf:resource="http://web.resource.org/cc/PublicDomain"/>
+        <dc:language>en</dc:language>
+      </cc:Work>
+      <cc:License
+            rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+            rdf:resource="http://web.resource.org/cc/Reproduction"/>
+        <cc:permits
+            rdf:resource="http://web.resource.org/cc/Distribution"/>
+        <cc:permits
+          rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  </svg>
+</body>
+</html>
+

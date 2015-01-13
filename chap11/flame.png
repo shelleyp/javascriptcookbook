@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="http://burningbird.net/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+  <title>Page not found</title>
+  <link type="text/css" rel="stylesheet" href="http://burningbird.net/sites/default/files/css/css_pbm0lsQQJ7A7WCCIMgxLho6mI_kBNgznNUWmTWcnfoE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://burningbird.net/sites/default/files/css/css_0XyY0mCn6GLAxecPzT555_8QUd1RowZNn19DzNc9cCI.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://burningbird.net/sites/default/files/css/css_ijyka2MnaJqjZ9TMcEyym27Iy2PPo3c5MTNMJ3Xbsds.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://burningbird.net/sites/default/files/css/css_58zW6S5yybFZZU3bAn7-swmfa_z1dffxvZVvqI9bQU0.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://burningbird.net/sites/default/files/css/css_2THG1eGiBIizsWFeexsNe1iDifJ00QRS9uSd03rY9co.css" media="print" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://burningbird.net/themes/bartik/css/ie.css?ne61ll" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://burningbird.net/themes/bartik/css/ie6.css?ne61ll" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="http://burningbird.net/sites/default/files/js/js_xAPl0qIk9eowy_iS9tNkCWXLUVoat94SQT48UBCFkyQ.js"></script>
+<script type="text/javascript" src="http://burningbird.net/sites/default/files/js/js_KCd8rbJYUruV1tRJnh4um34UYvyhlrSVCPR1jNko2h8.js"></script>
+<script type="text/javascript" src="http://burningbird.net/sites/default/files/js/js_a_XWH2S1EQaU85ypMDyQGiUfzPFez1IOZKxHnhGkv3E.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"mybartik","theme_token":"M9yRjMwbjqtySNDBKA4YDqVQhcqH-usRx0nw1mPWtgQ","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"misc\/form.js":1,"misc\/collapse.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/tagclouds\/tagclouds.css":1,"themes\/bartik\/css\/layout.css":1,"sites\/all\/themes\/mybartik\/css\/style.css":1,"sites\/all\/themes\/mybartik\/css\/colors.css":1,"themes\/bartik\/css\/print.css":1,"themes\/bartik\/css\/ie.css":1,"themes\/bartik\/css\/ie6.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-search404" >
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page-wrapper"><div id="page">
+
+  <div id="header" class="without-secondary-menu"><div class="section clearfix">
+
+          <a href="/" title="Home" rel="home" id="logo">
+        <img src="http://burningbird.net/sites/default/files/phoenix5med.png" alt="Home" longdesc="/logo.html" />
+      </a>
+    
+          <div id="name-and-slogan">
+
+                              <div id="site-name">
+              <strong>
+                <a href="/" title="Home" rel="home"><span>Burningbird</span></a>
+              </strong>
+            </div>
+                  
+                  <div id="site-slogan">
+            periodically bursting into flames is highly overrated          </div>
+        
+      </div> <!-- /#name-and-slogan -->
+    
+    
+    
+    
+  </div></div> <!-- /.section, /#header -->
+
+  
+  
+  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+          <div id="breadcrumb"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a></div></div>
+    
+    
+    <div id="content" class="column"><div class="section">
+            <a id="main-content"></a>
+                    <h1 class="title" id="page-title">
+          Page not found        </h1>
+                          <div class="tabs">
+                  </div>
+                          <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <form class="search-form" action="/search/node" method="post" id="search-form" accept-charset="UTF-8"><div><div class="container-inline form-wrapper" id="edit-basic"><div class="form-item form-type-textfield form-item-keys">
+  <label for="edit-keys">Enter your keywords </label>
+ <input type="text" id="edit-keys" name="keys" value="" size="40" maxlength="255" class="form-text" />
+</div>
+<input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-iA1jjb4d24nTN_gKyOrt6zp0SUtb3Wd0s6Sa6F90YC4" />
+<input type="hidden" name="form_id" value="search_form" />
+<fieldset class="search-advanced collapsible collapsed form-wrapper" id="edit-advanced"><legend><span class="fieldset-legend">Advanced search</span></legend><div class="fieldset-wrapper"><div class="criterion"><div class="form-item form-type-textfield form-item-or">
+  <label for="edit-or">Containing any of the words </label>
+ <input type="text" id="edit-or" name="or" value="" size="30" maxlength="255" class="form-text" />
+</div>
+<div class="form-item form-type-textfield form-item-phrase">
+  <label for="edit-phrase">Containing the phrase </label>
+ <input type="text" id="edit-phrase" name="phrase" value="" size="30" maxlength="255" class="form-text" />
+</div>
+<div class="form-item form-type-textfield form-item-negative">
+  <label for="edit-negative">Containing none of the words </label>
+ <input type="text" id="edit-negative" name="negative" value="" size="30" maxlength="255" class="form-text" />
+</div>
+</div><div class="criterion"><div class="form-item form-type-checkboxes form-item-type">
+  <label for="edit-type">Only of the type(s) </label>
+ <div id="edit-type" class="form-checkboxes"><div class="form-item form-type-checkbox form-item-type-page">
+ <input type="checkbox" id="edit-type-page" name="type[page]" value="page" class="form-checkbox" />  <label class="option" for="edit-type-page">Page </label>
+
+</div>
+<div class="form-item form-type-checkbox form-item-type-story">
+ <input type="checkbox" id="edit-type-story" name="type[story]" value="story" class="form-checkbox" />  <label class="option" for="edit-type-story">Story </label>
+
+</div>
+</div>
+</div>
+</div><div class="action"><input type="submit" id="edit-submit--2" name="op" value="Advanced search" class="form-submit" /></div></div></fieldset>
+</div></form>  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+          <div id="sidebar-second" class="column sidebar"><div class="section">
+          <div class="region region-sidebar-second">
+    <div id="block-statistics-popular" class="block block-statistics">
+
+    <h2>Popular content</h2>
+  
+  <div class="content">
+    <div class="item-list"><h3>Today's:</h3><ul><li class="first"><a href="/curved-space-cummings">Curved Space with Cummings</a></li>
+<li><a href="/fri-07192013-0858/new-books-new-writing-experiences">New Books, New Writing Experiences</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/posse">Posse</a></li>
+<li class="last"><a href="/missouri-dives-rabbit-hole-amendments-1-and-5">Missouri Dives into the Rabbit Hole with Amendments 1 and 5</a></li>
+</ul></div><br /><div class="item-list"><h3>All time:</h3><ul><li class="first"><a href="/node/106">The W3C Bites Back?</a></li>
+<li><a href="/node/55">Whole Foods, Healthcare, and Boycotts</a></li>
+<li><a href="/node/78">No, HTML5 is NOT at Last Call</a></li>
+<li><a href="/node/28">HTML5: A Story in Progress</a></li>
+<li class="last"><a href="/node/37">Twitter&#039;s Adverse Impacts</a></li>
+</ul></div><br /><div class="item-list"><h3>Last viewed:</h3><ul><li class="first"><a href="/thu-05202010-1601/observations">Observations</a></li>
+<li><a href="/eating-flicka-good-idea">Eating Flicka: A Good Idea?</a></li>
+<li><a href="/node/150">New WHATWG Weekly and other news</a></li>
+<li><a href="/node/78">No, HTML5 is NOT at Last Call</a></li>
+<li class="last"><a href="/death-moth">Death of a Moth</a></li>
+</ul></div><br />  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+    
+  <div class="content">
+    <form action="/flame.png" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit--3" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-oorIORvOlExfag3YhMikMEjX7Dmi95oqg259dVvRuQA" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+</div>
+  </div>
+      </div></div> <!-- /.section, /#sidebar-second -->
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+          <div id="footer" class="clearfix">
+          <div class="region region-footer">
+    <div id="block-block-4" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="http://burningbird.net/about">About</a> |  ©<a href="http://burningbird.net/">Burningbird</a> |  <a href="mailto:shelley.just@gmail.com">Contact</a> |  <a href="http://drupal.org/">Powered by Drupal</a>
+</p>
+  </div>
+</div>
+  </div>
+      </div> <!-- /#footer -->
+      </div></div> <!-- /.section, /#footer-wrapper -->
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>

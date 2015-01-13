@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+<title>Twitter Search</title>
+<meta charset="utf-8" />
+<style>
+   ul {
+      width: 600px;
+      list-style-type: none;
+      margin-left: 50px;
+      padding: 0
+   }
+   li {
+      font: 200 14px/1.5 Helvetica, Verdana, sans-serif;
+      padding-bottom: 10px;
+      color: #606060;
+   }
+</style>
+</head>
+<body>
+   <label for="one">Twitter Search Value:</label>
+   <input type="text" name="one" id="one" /><br />
+   <button id="getdata">Search Twitter</button>
+   <div id="result"></div>
+   <script>
+      var httpRequest;
+
+      document.getElementById('getdata')
+         .addEventListener('click',getData,false);
+
+      function getData(e) {
+         e.preventDefault();
+
+         var search = document.getElementById('one').value;
+         if (!search || search.length === 0) return;
+         httpRequest = new XMLHttpRequest();
+
+         search = encodeURIComponent(search);
+         var url = "http://shelleystoybox.com:8080/?q=" + search;
+         httpRequest.open('GET', url, true);
+         httpRequest.onreadystatechange = processData;
+         httpRequest.send();
+      }
+
+      function processData() {
+         if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+
+            var tweets = JSON.parse(httpRequest.responseText);
+            var str = '<ul>';
+            tweets.statuses.forEach(function(tweet) {
+               str += '<li>' + tweet.text + ' via '
+                  + '@' + tweet.user.screen_name + '</li>';
+            });
+            str += '</ul>';
+            document.getElementById('result').innerHTML = str;
+         }
+      }
+   </script>
+</body>
+

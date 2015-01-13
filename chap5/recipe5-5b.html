@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>stripes</title>
+</head>
+<body>
+  <ul id="thelist">
+    <li>Value 1</li>
+    <li>Value 2</li>
+    <li>Value 3</li>
+    <li>Value 4</li>
+  </ul>
+  <script>
+    var lis = document.querySelectorAll('li:nth-child(2n+1)');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].setAttribute("style","background-color: #ffeeee");
+    }
+  </script>
+</body>
+</html
+

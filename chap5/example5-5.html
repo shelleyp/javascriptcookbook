@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+<title>Adding and Removing Elements</title>
+<style>
+table {
+   border-collapse: collapse;
+}
+td, th {
+   padding: 5px;
+   border: 1px solid #ccc;
+}
+tr:nth-child(2n+1)
+{
+   background-color: #eeffee;
+}
+</style>
+
+</head>
+<body>
+<table id="mixed">
+  <tr><th>Value One</th><th>Value two</th><th>Value three</th></tr>
+</table>
+<div id="result"></div>
+
+<script>
+
+  var values = new Array(3);
+  values[0] = [123.45, "apple", true];
+  values[1] = [65, "banana", false];
+  values[2] = [1034.99, "cherry", false];
+
+  var mixed = document.getElementById("mixed");
+
+  var tbody = document.createElement("tbody");
+
+  // for each outer array row
+  for (var i = 0 ; i < values.length; i++) {
+     var tr = document.createElement("tr");
+
+     // for each inner array cell
+     // create td then text, append
+     for (var j = 0; j < values[i].length; j++) {
+       var td = document.createElement("td");
+       var txt = document.createTextNode(values[i][j]);
+       td.appendChild(txt);
+       tr.appendChild(td);
+     }
+
+     // attache event handler
+     tr.onclick=prunerow;
+
+     // append row to table
+     tbody.appendChild(tr);
+     mixed.appendChild(tbody);
+  }
+
+  function prunerow() {
+  
+    // remove row
+    var parent = this.parentNode;
+    var oldrow = parent.removeChild(this);
+
+    // datastring from removed row data
+    var datastring = "";
+    for (var i = 0; i < oldrow.childNodes.length; i++) {
+      var cell = oldrow.childNodes[i];
+      datastring+=cell.firstChild.data + " ";
+    }
+
+    // output message
+    var msg = document.createTextNode("removed " + datastring);
+    var p = document.createElement("p");
+    p.appendChild(msg);
+    document.getElementById("result").appendChild(p);
+  
+  }
+</script>
+</body>
+

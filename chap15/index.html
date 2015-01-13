@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>bi-directional communication</title>
+  <script src="//cdn.socket.io/socket.io-1.1.0.js"></script>
+  <script>
+     var socket = io.connect('http://shelleystoybox.com:8124');
+     socket.on('counter', function (data) {
+        data.counter = parseInt(data.counter) + 1;
+        data.strng+=data.counter + '-';
+        var html = '<p>' + data.strng + '</p>';
+        document.getElementById("output").innerHTML=html;
+        socket.emit('counter', data);
+    });
+</script>
+</head>
+<body>
+<div id="output"></div>
+</body>
+</html>

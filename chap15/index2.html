@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>bi-directional communication</title>
+  <script type="text/javascript">
+     var socket = new WebSocket("ws://shelleystoybox.com:8001");
+     socket.onmessage = function (event) {
+        var msg = JSON.parse(event.data);
+        msg.counter = parseInt(msg.counter) + 1;
+        msg.strng+=msg.counter + '-';
+        var html = '<p>' + msg.strng + '</p>';
+        document.getElementById("output").innerHTML=html;
+        socket.send(JSON.stringify(msg));
+    };
+</script>
+</head>
+<body>
+<div id="output"></div>
+</body>
+</html>

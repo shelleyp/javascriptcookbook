@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>&lt;hello-world&gt;</title>
+
+    <!-- Importing Custom Elements -->
+    <link rel="import" href="src/new.html">
+      
+</head>
+<body>
+<ul>
+<li>original list</li>
+<li>second item</li>
+</ul>
+
+<button id="gethtml">Get The List</button>
+<script> 
+   document.getElementById('gethtml').addEventListener('click', function() {
+     var link = document.querySelector('link[rel="import"]');
+     var content = link.import;
+     var el = content.querySelector('#newbie');
+     document.body.appendChild(el.cloneNode(true));
+   }, false);
+</script>
+</body>
+</html>

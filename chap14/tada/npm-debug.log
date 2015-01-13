@@ -1,0 +1,33 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+2 info using npm@2.1.2
+3 info using node@v0.10.32
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart tada@0.0.0
+6 info start tada@0.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info tada@0.0.0 Failed to exec start script
+9 verbose stack Error: tada@0.0.0 start: `node ./bin/www`
+9 verbose stack Exit status 8
+9 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:212:16)
+9 verbose stack     at ChildProcess.emit (events.js:98:17)
+9 verbose stack     at maybeClose (child_process.js:756:16)
+9 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:823:5)
+10 verbose pkgid tada@0.0.0
+11 verbose cwd /home/examples/public_html/newcook/chap14/tada
+12 error Linux 3.15.4-x86_64-linode45
+13 error argv "node" "/usr/local/bin/npm" "start"
+14 error node v0.10.32
+15 error npm  v2.1.2
+16 error code ELIFECYCLE
+17 error tada@0.0.0 start: `node ./bin/www`
+17 error Exit status 8
+18 error Failed at the tada@0.0.0 start script.
+18 error This is most likely a problem with the tada package,
+18 error not with npm itself.
+18 error Tell the author that this fails on your system:
+18 error     node ./bin/www
+18 error You can get their info via:
+18 error     npm owner ls tada
+18 error There is likely additional logging output above.
+19 verbose exit [ 1, true ]

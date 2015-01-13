@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+<title>ePub Reader</title>
+<meta charset="utf-8" />
+<style>
+#result
+{
+  width: 500px;
+  margin: 30px;
+}
+</style>
+</head>
+<body>
+  <form>
+    <label for="title">Title:</label>
+    <input type="text" id="bookTitle" /></br ><br />
+    <label for="file">File:</label> <input type="file" id="file" /><br />
+  </form>
+  <div id="result"></div>
+
+  <script>
+  
+    var inputElement = document.getElementById("file");
+    inputElement.addEventListener("change", handleFiles, false);
+
+    function handleFiles() {
+      var fileList = this.files;
+      var reader = new FileReader();
+      reader.onload = loadFile;
+      reader.readAsText(fileList[0]);
+    }
+
+    function loadFile() {
+
+      // look for the body section of the document
+      var parser = new DOMParser();
+      var xml = parser.parseFromString(this.result,"text/xml");
+      var content = xml.getElementsByTagName("body");
+
+      // if found, extract the body element's innerHTML
+      if (content.length > 0) {
+        var ct = content[0].innerHTML;
+        var title = document.getElementById("bookTitle").value;
+        title = "<h2>" + title + "</title>";
+        document.getElementById("result").innerHTML = title + ct;
+      }
+    }
+  </script>
+</body>
+

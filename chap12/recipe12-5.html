@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Dojo</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.10.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+</head>
+<body>
+ <div id="placeholder"></div>
+    <script>
+        require([
+            'dojo/dom',
+            'dojo/dom-construct'
+        ], function (dom, domConstruct) {
+            var ph = dom.byId("placeholder");
+            ph.innerHTML = "Using Dojo";
+            domConstruct.create("h1", {innerHTML: "<i>Howdy!</i>"},ph,"before");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Accessing numbers in table</title>
+</head>
+<body>
+<table id="table1">
+   <tr>
+      <td>Washington</td><td>145</td>
+   </tr>
+   <tr>
+      <td>Oregon</td><td>233</td>
+   </tr>
+   <tr>
+      <td>Missouri</td><td>833</td>
+   </tr>
+</table>
+<script type="text/javascript">
+
+   var sum = 0;
+
+   // use querySelector to find all second table cells
+   var cells = document.querySelectorAll("td + td");
+
+   for (var i = 0; i < cells.length; i++)
+      sum+=parseFloat(cells[i].firstChild.data);
+
+   // now add sum to end of table
+   var newRow = document.createElement("tr");
+
+   // first cell
+   var firstCell = document.createElement("td");
+   var firstCellText = document.createTextNode("Sum:");
+   firstCell.appendChild(firstCellText);
+   newRow.appendChild(firstCell);
+
+   // second cell with sum
+   var secondCell = document.createElement("td");
+   var secondCellText = document.createTextNode(sum);
+   secondCell.appendChild(secondCellText);
+   newRow.appendChild(secondCell);
+
+   // add row to table
+   document.getElementById("table1").appendChild(newRow);
+
+</script>
+</body>
+</html>
+

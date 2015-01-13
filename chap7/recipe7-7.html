@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Keypress</title>
+<script src="keypress.js"></script>
+</head>
+<body>
+  <div id="message">Press shift-r or press a b c </div>
+
+<script>
+  var message = document.getElementById("message");
+  var listener = new window.keypress.Listener();
+  listener.simple_combo("shift r", function() {
+            message.innerHTML = "Pressed shift r";
+         });
+  listener.sequence_combo("a b c", function() {
+            message.innerHTML = "you know your ABCs";
+         });
+</script>
+
+</body>
+</html>

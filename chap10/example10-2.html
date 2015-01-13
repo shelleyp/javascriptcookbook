@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ECMAScript 6 class</title>
+<script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+<script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+</head>
+<body>
+<script type="module">
+
+  class Book {
+     constructor(title, author, pubdate) {
+       this.title = title;
+       this.author = author;
+       this.pubdate = pubdate;
+     }
+     getBook() {
+       return this.author + " published " + this.title + " in " + this.pubdate;
+     }
+  }
+
+
+  class TypedBook extends Book {
+     constructor(title, author, pubdate, type) {
+       super.constructor(title, author, pubdate);
+       this.type = type;
+     }
+     getBook() {
+       return super.getBook() + " - category: " + this.type;
+     }
+
+     getType() {
+       return this.type;
+     }
+  }
+
+  var bookA = new TypedBook("Winning Small", "Sally Author", 2012, "history");
+  
+  // Sally Author published Winning Small in 2012 - category: history
+  console.log(bookA.getBook());
+
+  // history
+  console.log(bookA.getType());
+</script>
+</body>
+</html>
+

@@ -1,0 +1,11 @@
+{
+  "name": "Where Am I?",
+  "short_name": "WhereAmI",
+  "icons": [{
+    "src": "img/icons/icon128x128.png",
+    "sizes": "128x128",
+  }],
+  "start_url": "/work/where/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+}

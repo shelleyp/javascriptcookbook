@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stories</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <div id="result">
+  </div>
+<script type="text/javascript">
+
+  var xmlHttpObj;
+  
+  // ajax object
+  if (window.XMLHttpRequest) {
+    xmlRequest = new XMLHttpRequest();
+  }
+
+  // build request
+  var url = "http://shelleystoybox.com:8080";
+  xmlRequest.open('GET', url, true);
+  xmlRequest.onreadystatechange = getData;
+  xmlRequest.send();
+
+  function getData() {
+    if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+      try {
+        var result = document.getElementById("result");
+        var str = "<p>";
+
+        // can use DOM methods on XML document
+        var resources =
+         xmlRequest.responseXML.getElementsByTagName("resource");
+
+        // process resources
+        for (var i = 0; i < resources.length; i++) {
+          var resource = resources[i];
+
+          // get title and url, generate HTML
+          var title = resource.childNodes[0].firstChild.nodeValue;
+          var url = resource.childNodes[1].firstChild.nodeValue;
+          str += "<a href='" + url + "'>" + title + "</a><br />";
+        }
+
+        // finish HTML and insert
+        str+="</p>";
+        result.innerHTML=str;
+      } catch (e) {
+        console.log(e.message);
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
+

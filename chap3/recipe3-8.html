@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+<title>faux Global</title>
+<script>
+
+  (function() {
+    var i = 0;
+
+    function increment() {
+      i++;
+      console.log("value is " + i);
+    }
+
+    function runIncrement() {
+      while (i < 5) {
+        increment();
+      }
+    }
+
+    window.onload=function() {
+      runIncrement();
+    }
+  })();
+
+</script>
+</head>
+<body>
+</body>
+</html>
+

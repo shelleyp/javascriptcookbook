@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>get div</title>
+</head>
+<body>
+<div id="demodiv">
+  <p>
+    This is text.
+  </p>
+</div> 
+<script id="jsbin-javascript">
+var demodiv = document.getElementById("demodiv");
+var outputString = "";
+
+if (demodiv.hasChildNodes()) {
+   var children = demodiv.childNodes;
+   for (var i = 0; i < children.length; i++) {
+      outputString+="has child " + children[i].nodeName + " ";
+   }
+}
+console.log(outputString);
+</script>
+</body>
+</html>

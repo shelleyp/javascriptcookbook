@@ -1,0 +1,12 @@
+(function (){
+   window.two = this;
+   this.hi =  function(val) {
+      console.log('hello ' + val + ' from two');
+   }
+
+   if ( typeof define === "function" && define.amd ) {
+      define( "two", [], function() {
+         return two;
+      });
+   }
+}());

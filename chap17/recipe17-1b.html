@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Modernizer</title>
+<style>
+  form {
+    width: 600px;
+  }
+  div {
+    margin: 20px 0 30px 0;
+  }
+</style>
+<link rel="stylesheet" href="css/validationEngine.jquery.css" />
+<script src="//code.jquery.com/jquery-2.1.1.js"></script>
+<script src="js/languages/jquery.validationEngine-en.js"></script>
+<script src="js/jquery.validationEngine.js"></script>
+</head>
+<body>
+  <div id="results">
+  </div>
+  <form id="example" name="example" action="" method="post">
+    <fieldset>
+        <legend>Example</legend>
+        <div class="fld">
+            <label for="name">Name (required):</label>
+            <input type="text" id="name" name="name" class="validate[required]"
+                  data-errormessage-value-missing="Name is required"
+             value="" />
+        </div>
+        <div class="fld">
+            <label for="email">Email (required):</label>
+            <input type="text" id="email" name="email" 
+                  class="validate[required,custom[email]]"
+                  data-errormessage-value-missing="Email is required"
+                  data-errormessage-custom-error="Format: name@service.com"
+             value="" />
+        </div>
+        <div class="fld">
+            <label>Website:</label>
+            <input type="text" id="url" name="url" 
+                  class="validate[custom[url]]" 
+                  data-errormessage-custom-error="Web URL"
+              value="">
+        </div>
+
+        <div class="fld">
+            <label>Credit Card:</label>
+            <input type="text" id="cc-card" name="cc-card" 
+                   class="validate[creditCard]"
+                   data-errormessage-pattern-mismatch="CC format is incorrect"
+              value="">
+        </div>
+        <div class="fld">
+            <label>Expires:</label>
+            <input type="text" id="expires" name="expires" value="">
+        </div>
+        <div class="fld">
+            <label>CVS:</label>
+            <input type="text" id="cvs" name="cvs" value="">
+        </div>
+ 
+        <div class="fld">
+            <input type="submit" value="Submit">
+        </div>
+    </fieldset>
+</form>
+
+<script>
+$(document).ready(function(){
+    $("#example").validationEngine();
+   });
+</script>
+  </body>
+</html>

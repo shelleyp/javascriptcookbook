@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Dropbox Data</title>
+   <style>
+     button {
+       padding: 10px;
+       margin: 5px;
+     }
+     #control {
+       margin-bottom: 20px;
+       padding: 10px;
+       background-color: palegreen;
+       width: 300px;
+     }
+     #inputs {
+       margin-bottom: 30px;
+     }
+     #addval {
+       margin-top: 20px;
+     }
+   </style>
+   <script 
+    src="https://www.dropbox.com/static/api/dropbox-datastores-1.2-latest.js">
+   </script>
+</head>
+<body>
+   <div id="control">
+   <button id="dblogin" hidden>Login to Dropbox</button>
+   <button id="dblogout">Logout and Cleanup</button><br />
+   </div>
+   <div id="inputs">
+      <label for="newkey">Key:</label>
+	  <input type="text" id="dskey" name="dskey" />
+      <label for="newval">Value:</label>
+      <input type="text" id="dsval" name="dsval" /><br />
+      <button id="addval">Add Record or Get Value</button>
+	  <button id="remrec">Remove Record</button>
+	  <button id="remrecs">Remove All Records</button>
+   </div>
+   
+   <button id="showvalues">Show Values:</button>
+   <div id="result"></div>
+
+   <script type="text/javascript">
+   	  
+     var DROPBOX_APP_KEY = '';
+     var client = new Dropbox.Client({key: DROPBOX_APP_KEY});
+      
+     client.authenticate({ interactive: false });
+     if (client.isAuthenticated()) {
+       loggedIn();
+     } else {
+       document.getElementById("dblogin").removeAttribute("hidden");
+     }
+	  
+     document.getElementById('dblogin').onclick=function(e) {
+       e.preventDefault();
+       client.authenticate(function (err) {
+         if (err) { 
+           console.log('Error: ' + err); 
+	   return; 
+         }
+         loggedIn();
+       });
+     }
+
+     function loggedIn() {
+       document.getElementById('dblogin').setAttribute('hidden',true);
+       var datastoreManager = new Dropbox.Datastore.DatastoreManager(client);
+			
+       datastoreManager.openDefaultDatastore(function (err, datastore) {
+         if (err) {
+           console.log(err);
+	   return;
+	 }
+	 
+         var valueTable = datastore.getTable('values');
+	 valueTable.setResolutionRule('value', 'max');
+			   
+	 document.getElementById('addval').onclick=function(e) {
+           var val = document.getElementById('dsval').value;
+           var key = document.getElementById('dskey').value;
+				  
+	   var records = valueTable.query({'key':key});
+	   if (records.length > 0) {
+	     if(val && val.length > 0) {
+	        records[0].set('value',val);
+	     } else {
+	        val = records[0].get('value');
+		document.getElementById('dsval').value = val;
+	     }
+	   } else {
+	     valueTable.insert({'key':key, 'value':val});
+	   }
+         };
+		  
+	 document.getElementById('remrec').onclick=function(e) {
+	   var key = document.getElementById('dskey').value;
+	   var records = valueTable.query({'key': key});
+	   records.forEach(function(record) {
+	     record.deleteRecord();
+	   });
+	 };
+			  
+	 document.getElementById('remrecs').onclick=function(e) {
+	   var records = valueTable.query();
+	   records.forEach(function(record) {
+	     record.deleteRecord();
+	   });
+	 };
+			  
+	 document.getElementById('showvalues').onclick=function(e) {
+	   var records = valueTable.query();
+	   var str = '';
+	   records.forEach(function(record) {
+             str+=record.get('value') + ' ';
+	   });
+	   document.getElementById('result').innerHTML = str;
+	 };
+			  
+         document.getElementById('dblogout').onclick=function(e) {
+           document.getElementById('dblogin').removeAttribute('hidden');
+	   document.getElementById('result').innerHTML = '';
+           client.signOut();				 
+	 };
+       });	
+     }			
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+<title>Live Update</title>
+<style type="text/css">
+ul li
+{
+  list-style-type: none;
+}
+</style>
+<script type="text/javascript">
+
+// global variables
+var xmlhttp;
+var timer;
+
+window.onload=function() {
+  document.getElementById("timer").onclick=startTimer;
+  document.getElementById("stoptimer").onclick=stopTimer;
+}
+
+// timer
+function startTimer() {
+  populateList();
+  timer=setTimeout(timerEvent,15000);
+}
+
+function timerEvent() {
+  if (xmlhttp.readyState == 4) {
+    populateList();
+  }
+  timer=setTimeout(timerEvent, 15000);
+}
+
+function stopTimer() {
+  clearTimeout(timer);
+}
+
+// prepare and send XHR request
+function populateList() {
+   var url = 'text.txt';
+
+   // if xmlHttpObj not set
+   if (!xmlhttp) {
+     xmlhttp = new XMLHttpRequest();
+   }
+
+   xmlhttp.open('GET', url, true);
+   xmlhttp.onreadystatechange = processResponse;
+   xmlhttp.send(null);
+
+}
+
+// process return
+function processResponse() {
+   if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+     var li = document.createElement("li");
+     var txt = document.createTextNode(xmlhttp.responseText);
+     li.appendChild(txt); 
+     var ul = document.getElementById("update");
+     ul.appendChild(li);
+               
+     // prune top of list
+     if (ul.childNodes.length > 10) {
+       ul.removeChild(ul.firstChild);
+     }
+
+   } else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
+     alert(xmlhttp.responseText);
+   }
+} 
+</script>
+</head>
+<body>
+<button id="timer">Start Timer</button> 
+<button id="stoptimer">Stop Timer</button>
+<ul id="update" role="log" aria-alive="polite" aria-atomic="true" 
+aria-relevant="additions">
+</ul>
+</body>

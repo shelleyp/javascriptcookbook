@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery fold demo</title>
+<link rel="stylesheet" 
+      href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+<style>
+#extra {
+  width: 600px;
+  height: 200px;
+  background-color: floralwhite;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+</style>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+</head>
+<body>
+<div id="extra" style="display: none">Lorem ipsum dolor sit amet, consectetur ad
+ipiscing elit. Integer in erat semper, condimentum erat nec, porttitor ipsum. Ma
+uris id erat luctus, finibus quam a, luctus est. Morbi id metus magna. Sed inter
+dum vel arcu sed accumsan. Etiam quis ultrices elit. Maecenas efficitur in orci
+a efficitur. Duis id elit commodo, malesuada lorem nec, aliquet lacus. Praesent
+sit amet laoreet eros, eu pulvinar libero. Sed vel dolor ac orci congue vulputat
+e. Donec pulvinar risus magna, non feugiat sem aliquet eget. Nullam viverra vive
+rra nunc et rutrum. Sed sed tellus a lorem porta vestibulum vel ac lacus. Suspen
+disse potenti. Curabitur ac tristique lorem, sed ullamcorper odio. Mauris at acc
+umsan lacus. Pellentesque at faucibus neque, nec aliquet mauris.</div>
+
+<button id="choice">Show additional info</button>
+<script>
+$("#choice").click(function() {
+  $( "#extra" ).toggle( "fold" , {horizFirst: true});
+});
+</script>
+</body>
+</html>
+

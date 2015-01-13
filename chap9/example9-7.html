@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+<title>Protanopia</title>
+   <meta charset="utf-8" />
+   <script>
+
+      // Protanopia filter
+      function protanopia(pixels) {
+         var d = pixels.data;
+         for (var i=0; i<d.length; i+=4) {
+            var r = d[i];
+            var g = d[i+1];
+            var b = d[i+2];
+
+            //convert to an approximate protanopia value
+            d[i] = 0.567*r + 0.433*g;
+            d[i+1] = 0.558*r + 0.442*g;
+            d[i+2] = 0.242*g + .758*b;
+          }
+        return pixels;
+      }
+      // event listeners
+      window.onload=function() {
+         document.getElementById("videoobj").
+                 addEventListener("play", drawVideo, false);
+      }
+
+      // draw the video
+      function drawVideo() {
+        var videoObj = document.getElementById("videoobj");
+
+        // if not playing, quit
+        if (videoObj.paused || videoObj.ended) return false;
+
+        // create scratch canvas
+        var canvasObj = document.getElementById("canvasobj");
+        var bc = document.createElement("canvas");
+        bc.width=480;
+        bc.height=270;
+
+        // get contexts for scratch and display canvases
+        var ctx = canvasObj.getContext("2d");
+        var ctx2 = bc.getContext("2d");
+
+        // draw video on scratch and get its data
+        ctx2.drawImage(videoObj, 0, 0, 480, 270);
+        var pData = ctx2.getImageData(0,0,480,270);
+
+        // grayscale it and set to display canvas
+        pData = protanopia(pData);
+        ctx.putImageData(pData,0,0);
+
+        setTimeout(drawVideo,20);
+     }
+   </script>
+</head>
+<body>
+   <video id="videoobj" controls width="480" height="270">
+      <source src="videofile.mp4" type="video/mp4" />
+      <source src="videofile.webm" type="video/webm" />
+   </video>
+   <canvas id="canvasobj" width="480" height="270"></canvas>
+</body>
+

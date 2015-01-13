@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CORS</title>
+</head>
+<body>
+  <div id="result"></div>
+  <script type="text/javascript">
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function() {
+      if (this.readyState == 4) {
+        console.log(this.status);
+        if (this.status == 200) {
+          document.getElementById('result').innerHTML =
+          this.responseText;
+        }
+      }
+    }
+
+    request.open('PUT','http://burningbird.net:8080/');
+    request.send('{name: test}');
+  </script>
+
+</body>
+</html>
+

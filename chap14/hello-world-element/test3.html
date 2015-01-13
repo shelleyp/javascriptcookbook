@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Web Components</title>
+
+    <!-- Importing Custom Elements -->
+    <link rel="import" href="src/new2.html">
+</head>
+<body>
+<ul id="test">
+<li>original list</li>
+<li>second item</li>
+</ul>
+<button id="gethtml">Get HTML</button>
+<div id="outer"><p>The Shadow DOM doesn't work for you</p></div>
+
+<script>
+   document.getElementById('gethtml').addEventListener('click', function() {
+     var link = document.querySelector('link[rel="import"]');
+     var content = link.import;
+
+     // get template
+     var template = content.querySelector('#newcontent');
+
+     // create shadow DOM, append template
+     var div = document.querySelector('#outer');
+
+     var shadow = div.createShadowRoot();
+     shadow.appendChild(template.content);
+     template.remove();
+   }, false);
+
+</script>
+</div>
+</body>
+</html>

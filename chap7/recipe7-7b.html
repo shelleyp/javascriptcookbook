@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery hotkeys</title>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="jquery.hotkeys.js"></script>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+   $(document).on('keydown',null,'shift+r', function() {
+       $('#message').html('you pressed shift r');
+   });
+   $(document).bind('keydown', 'ctrl+a', function() {
+       $('#message').html('Pressed ctrl+a');
+   });
+ });
+</script>
+</head>
+<body>
+<div id="message"></div>
+</body>
+</html>
+

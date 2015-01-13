@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html manifest="cache.appcache">
+   <head>
+      <meta charset="utf-8">
+      <title>Where Am I?</title>
+      <meta name="mobile-web-app-capable" content="yes">
+
+      <link rel="manifest" href="manifest.json">
+
+<!-- Fallback application metadata for legacy browsers -->
+      <meta name="description" content="A Where Am I app">
+      <meta name="application_name" content="Where Am I?">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon" sizes="128x128" href="img/icons/icon128x128.png">
+
+<!-- Source files -->
+      <link rel="stylesheet" href="/work/where/css/app.css">
+      <script src="/work/where/js/map.js"></script>
+      <script src="/work/where/js/app.js"></script> 
+   </head>
+   <body>
+      <section>
+         <h1>Where Am I</h1>
+         <p><button id="getmap">Get Map</button></p>
+         <div id="out"></div>
+      </section>
+   </body>
+</html>

@@ -1,0 +1,11 @@
+CACHE MANIFEST
+
+# version 
+
+js/map.js
+js/app.js
+css/app.css
+img/icons/icon128x128.png
+
+NETWORK:
+*

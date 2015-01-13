@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CORS blob</title>
+</head>
+<body>
+  <img id="result" />
+  <script type="text/javascript">
+    var request = new XMLHttpRequest();
+
+    request.open('GET','burningbird.png', true);
+    request.responseType = "blob";
+
+    var img = document.getElementById("result");
+    request.onload=function(event) {
+      var blob = request.response;
+      img.src = URL.createObjectURL(blob);
+    };
+    request.send(null);
+
+    img.onload=function(e) {
+      URL.revokeObjectURL(this.src);
+    };
+    </script>
+
+</body>
+</html>
+

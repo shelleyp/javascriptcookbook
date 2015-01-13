@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>IndexedDB</title>
+</head>
+<body>
+
+<script>
+
+  var data = [{name: "Joe Brown",age: 53, experience: 5},
+            {name: "Cindy Johnson", age: 44, experience: 5},
+            {name: "Some Reader", age: 30, experience: 1}];
+
+  var delreq = indexedDB.deleteDatabase("Cookbook");
+
+  delreq.onerror = function(event) {
+        console.log("delete error", event);
+        done = true;
+    };
+
+  var request = indexedDB.open("Cookbook", 1);
+
+  request.onupgradeneeded = function(event) {
+
+    window.db = event.target.result;
+    var transaction = event.target.transaction;
+
+    var objectStore = db.createObjectStore("reader", 
+               { keyPath: "id", autoIncrement: true });
+
+    objectStore.createIndex("experience", "experience", {unique: false});
+    objectStore.createIndex("name", "name", {unique: true});
+
+    transaction.oncomplete = function(event) {
+      console.log('data finished');
+    };
+
+    var objectStore = transaction.objectStore("reader");
+    for (var i in data) {
+      var req = objectStore.add(data[i]);
+      req.onsuccess = function(event) {
+        console.log('data added');
+      };
+    }
+  };
+  
+  request.onerror = function(event) {
+    console.log(event.target.errorCode);
+  };
+
+  request.onsuccess = function(event) {
+    console.log('datastore created');
+  };
+
+  document.onclick=function() {
+    var request = db.transaction(["reader"])
+                        .objectStore("reader").get(2);
+    request.onsuccess = function(event){
+                        console.log("Name : "+request.result.name);
+    } ;
+  }
+</script>
+
+</body>
+</html>
+

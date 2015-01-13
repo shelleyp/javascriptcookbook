@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Underscore</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore.js"></script>
+ 
+</head>
+<body>
+
+<script >
+var fibonacci = _.memoize(function(n) {
+  return n < 2 ? n: fibonacci(n - 1) + fibonacci(n - 2);
+});
+
+console.log(fibonacci(10)); // 55
+
+// flatten a multidimensional array
+var ary = _.flatten([1, ['apple'], [3, [['peach']]]]);
+console.log(ary); // [1, "apple", 3, "peach"]
+
+// filter an object based on an array of blacklisted keys
+var fltobj = _.omit({name: 'moe', age: 50, userid: 'moe1'}, 'userid');
+
+console.log(fltobj); // [object Object] { age: 50, name: "moe'}
+
+// escape a string for insertion into HTML
+var str = _.escape("<div>This & that and 'the other'</div>");
+
+console.log(str); // "&lt;div&gt;This &amp; that and &#x27;the other&#x27;&lt;/div&gt;"
+
+</script>
+</body>
+</html>

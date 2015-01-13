@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Modernizer</title>
+    <style>
+       form {
+         width: 600px;
+       }
+       div {
+         margin: 10px;
+       }
+     </style>
+    <script src="validate.js"></script>
+  </head>
+  <body>
+  <div id="results">
+  </div>
+    <form name="example" action="" method="post">
+    <fieldset>
+        <legend>Example</legend>
+        <div>
+            <label for="name">Name (required):</label>
+            <input type="text" id="name" name="name" value="" />
+        </div>
+        <div>
+            <label for="email">Email (required):</label>
+            <input type="text" id="email" name="email" value="">
+        </div>
+        <div>
+            <label>Website:</label>
+            <input type="text" id="url" name="url" value="">
+        </div>
+
+        <div>
+            <label>Credit Card:</label>
+            <input type="text" id="cc-card" name="cc-card" value="">
+        </div>
+        <div>
+            <label>Expires:</label>
+            <input type="text" id="expires" name="expires" value="">
+        </div>
+        <div>
+            <label>CVS:</label>
+            <input type="text" id="cvs" name="cvs" value="">
+        </div>
+ 
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </fieldset>
+</form>
+
+<script type="text/javascript">
+   var validator = new FormValidator('example', [{
+    name: 'name',
+    display: 'Name',
+    rules: 'required|min_length[10]'
+    }, 
+    {
+    name: 'email',
+    display: 'Email',
+    rules: 'required|valid_email'
+    },
+    {
+    name: 'url',
+    display: 'Website URL',
+    rules: 'valid_url'
+    }, 
+    {
+    name: 'cc-card',
+    display: 'Credit Card',
+    rules: 'valid_credit_card'
+    }], function (errors, event) {
+    if (errors.length > 0) {
+      var msg = "";
+      errors.forEach(function(elem,indx,arry) {
+        msg+=elem.message + '<br />';
+      }); 
+      document.getElementById("results").innerHTML=msg;
+    }
+});
+</script>
+  </body>
+</html>

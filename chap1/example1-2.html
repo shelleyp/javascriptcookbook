@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Searching for strings</title>
+<style>
+.found
+{
+  background-color: #ff0;
+}
+</style>
+</head>
+<body>
+  <form id="textsearch">
+    <textarea id="incoming" cols="100" rows="10">
+    </textarea>
+    <p>
+      Search pattern: <input id="pattern" type="text" />
+    </p>
+  </form>
+  <button id="searchSubmit">Search for pattern</button>
+  <div id="searchResult"></div>
+
+<script>
+
+  document.getElementById("searchSubmit").onclick=function() {
+
+    // get pattern
+    var pattern = document.getElementById("pattern").value;
+    var re = new RegExp(pattern,"g");
+
+    // get string
+    var searchString = document.getElementById("incoming").value;
+
+    // replace
+    var resultString = searchString.replace(re,"<span class='found'>$&</span>");
+
+    // insert into page
+    document.getElementById("searchResult").innerHTML = resultString;
+ }
+
+</script>
+</body>
+</html>
+

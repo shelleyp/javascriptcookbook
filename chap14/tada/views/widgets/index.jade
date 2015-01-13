@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  table
+    caption Widgets
+      if widgets.length
+        tr
+          th SN
+          th Name
+          th Price
+          th Description
+          th
+          th
+        each widget in widgets
+          if widget
+            include row
+

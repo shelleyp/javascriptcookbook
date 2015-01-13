@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+  <title>Comparing Cookies and sessionStorage</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+  <style>
+    div
+   {
+     margin: 10px;
+   }
+
+   #sessionstr, #cookiestr
+   {
+     width: 100px;
+     background-color: yellow;
+     padding: 5px;
+   }
+  </style>
+  <script src="cookie.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+   <form>
+     <div>
+      <label for="key"> Enter key:</label>
+        <input type="text" id="key" />
+      </div>
+      <div>
+      <label for="value">Enter value:</label>
+        <input type="text" id="value" />
+      </div>
+   </form>
+   <button id="set">Set data</button>
+   <button id="get">Get data</button>
+   <button id="erase">Erase data</button>
+   <p>Session:</p>
+   <div id="sessionstr"></div>
+   <p>Cookie:</p>
+   <div id="cookiestr"></div>
+   
+   <script>
+   
+      document.getElementById("set").onclick=setData;
+      document.getElementById("get").onclick=getData;
+      document.getElementById("erase").onclick=removeData;
+      
+</script>
+ 
+</body>

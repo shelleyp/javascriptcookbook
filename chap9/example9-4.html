@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+<title>SVG in Object</title>
+<meta charset="utf-8" />
+</head>
+<body>
+<object id="object" data="rect.svg"
+style="padding: 20px; width: 600px; height: 600px">
+<p>No SVG support</p>
+</object>
+<script type="text/javascript">
+
+  var object = document.getElementById("object");
+  object.onload=function() {
+      var svgdoc;
+
+      // get access to the SVG document object
+      try {
+
+         svgdoc = object.contentDocument;
+      } catch(e) {
+         try {
+
+            svgdoc = object.getSVGDocument();
+
+          } catch (e) {
+            alert("SVG in object not supported in your environment");
+          }
+      }
+
+      if (!svgdoc) return;
+      var r = svgdoc.rootElement;
+
+      // get SVG element and modify
+      var square = svgdoc.getElementById('square');
+      square.onclick = function() {
+
+         var width = parseFloat(square.getAttribute("width"));
+         width-=50;
+         square.setAttribute("width",width);
+         var color = square.getAttribute("fill");
+         if (color == "blue") {
+             square.setAttribute("fill","yellow");
+             square.setAttribute("stroke","green");
+         } else {
+             square.setAttribute("fill","blue");
+             square.setAttribute("stroke","red");
+         }
+      }
+  }
+</script>
+</body>
+

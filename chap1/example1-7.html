@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ES 6 String</title>
+<script type="text/javascript" src="es6-shim.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+  // quote from "To Kill a Mockingbird"
+  var str = "Mockingbirds don't do one thing except make music " +
+  "for us to enjoy. They don't eat up people's gardens, " +
+  "don't nest in corn cribs, " +
+  "they don't do one thing but sing their hearts out for us. " +
+  "That's why it's a sin to kill a mockingbird."
+
+  console.log(str.startsWith("Mockingbirds")); // true
+  console.log(str.startsWith("autos", 20)); // false
+
+  console.log(str.endsWith("mockingbird.")); // true
+  console.log(str.endsWith("kill", str.length-15)); // true
+
+  var cp = str.codePointAt(50); // 102 for 'f'
+  var cp2 = str.codePointAt(51); // 111 for 'o'
+  var cp3 = str.codePointAt(52); // 114 for 'r'
+
+  var str2 = String.fromCodePoint(cp,cp2,cp3);
+
+  console.log(str2); // for
+</script>
+</body>
+</html>
+

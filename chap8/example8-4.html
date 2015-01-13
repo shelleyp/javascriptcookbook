@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+<title>On Demand Select</title>
+<style>
+#nicestuff
+{
+  display: none;
+  margin: 10px 0;
+}
+#nicething
+{
+  width: 400px;
+}
+</style>
+</head>
+<body>
+<form action="backuppage.php" method="get">
+  <p>Select one:</p>
+  <fieldset id="nicething">
+     <input type="radio" name="nicethings" value="bird" />
+     <label for="bird">Birds</label><br />
+     
+     <input type="radio" name="nicethings" value="flower" />
+     <label for="flower">Flowers</label><br />
+     
+     <input type="radio" name="nicethings" value="sweets" />
+     <label for="sweets">Sweets</label><br />
+     
+     <input type="radio" name="nicethings" value="cuddles" />
+     <label for="cuddles">Cute Critters</label>
+  </fieldset>
+  <input type="submit" id="submitbutton" value="get nice things" />
+  <select id="nicestuff"></select>
+</form>
+<script>
+
+var xmlhttp;
+
+function populateSelect() {
+
+  var value;
+
+  var inputs = this.getElementsByTagName('input');
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i].checked) {
+      value = inputs[i].value;
+      break;
+    }
+  }
+
+  // prepare request
+  if (!xmlhttp) {
+    xmlhttp = new XMLHttpRequest();
+  }
+  var url = "nicething.php?nicething=" + value;
+  xmlhttp.open('GET', url, true);
+  xmlhttp.onreadystatechange = getThings;
+  xmlhttp.send(null);
+}
+
+// process return
+function getThings() {
+   if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+     var select = document.getElementById("nicestuff");
+     select.length=0;
+     var nicethings = xmlhttp.responseText.split(",");
+     for (var i = 0; i < nicethings.length; i++) {
+       select.options[select.length] = 
+          new Option(nicethings[i], nicethings[i]);
+     }
+     select.style.display="block";
+   } else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
+     alert("No items returned for request");
+   }
+}
+
+document.getElementById("submitbutton").style.display="none";
+document.getElementById("nicething").onclick=populateSelect;
+
+</script>
+
+</body>
+

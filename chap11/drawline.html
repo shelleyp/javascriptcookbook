@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Never Ending Line</title>
+  <style>
+    #timeline {
+       border: 1px solid black;
+    }
+    path {
+       fill: none;
+       stroke: maroon;
+       stroke-width: 1px;
+    }
+  </style>
+  <script type="text/javascript">
+     var counter = 0;
+     var x = 0;
+     var socket = new WebSocket("ws://shelleystoybox.com:8001");
+     socket.onmessage = function (event) {
+        var val = JSON.parse(event.data);
+        var point = parseInt(val.counter); 
+
+        // modify path
+        var path = document.getElementById('thepath');
+        var d = path.getAttribute('d');
+        counter+=10;
+        d+= 'L' + counter + ' ' + point;
+        path.setAttribute('d',d);
+
+        // now see if path needs moving
+        if (counter > 600) {
+          x = 600 - counter;
+          var translate = 'translate(' + x + ',0)';
+          path.setAttribute('transform',translate);
+        }
+    };
+</script>
+</head>
+<body>
+<svg id="timeline" width="600px" height="100px">
+  <path id="thepath" d="M0 100" />
+</svg>
+</body>
+</html>

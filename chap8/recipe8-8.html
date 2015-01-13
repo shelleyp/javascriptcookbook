@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+<title>City lookup</title>
+<style type="text/css">
+ul li
+{
+  list-style-type: none;
+}
+</style>
+</head>
+<body>
+<ul id="update">
+</ul>
+
+<script type="text/javascript">
+
+   var xmlhttp;
+
+   window.onload=function() {
+      xmlhttp = new XMLHttpRequest();
+      populateList();
+   }
+
+   // prepare and send XHR request
+   function populateList() {
+      var url = 'http://examples.burningbird.net/newcook/chap8/text.txt'; 
+
+      xmlhttp.open('GET', url, true);
+      xmlhttp.onreadystatechange = processResponse;
+      xmlhttp.send(null);
+   } 
+
+   // process return
+   function processResponse() {
+      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+         var li = document.createElement("li");
+         var txt = document.createTextNode(xmlhttp.responseText);
+         li.appendChild(txt);
+         document.getElementById("update").appendChild(li);
+         setTimeout(populateList, 15000);
+      } else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
+         console.log(xmlhttp.responseText);
+      }
+   }
+
+</script>
+</body>

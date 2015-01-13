@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+  </head>
+  <body>
+    <script>
+       (function() {
+          var scrpt = document.querySelector("script");
+          var t = document.createElement("script");
+          t.src = "test1.js";
+          scrpt.parentNode.insertBefore(t,scrpt);
+       }());
+    </script>
+  </body>
+</html>
